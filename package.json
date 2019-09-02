@@ -1,0 +1,20 @@
+{
+  "name": "nogoddamnts",
+  "version": "1.0.0",
+  "description": "monster bar summer party edition",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "KazzMoney",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-reload": "^1.2.0",
+    "node-fetch": "^2.6.0"
+  }
+}
