@@ -42,7 +42,7 @@ app.get('/', cacheMiddleWare, asyncMiddleware(async (req, res) => {
   if (question !== "" && question.indexOf(':') > -1) {
     // Assumed that question follows "QUESTIONID: question string" syntax
     const questionString = question.substr(question.indexOf(':') + 1).trim();
-    console.log(questionString);
+    console.log(chalk.blue('Question: ' + questionString));
     
     response = await queryApi(questionString);
     if (response.indexOf(',') > -1) {
@@ -51,6 +51,7 @@ app.get('/', cacheMiddleWare, asyncMiddleware(async (req, res) => {
     response = response.toLowerCase();
     
     if (response === 'no short answer available' || response === 'wolfram|alpha did not understand your input') {
+      response = "";
       
       // MANUAL REPLIES HERE:
       switch (questionString) {
@@ -64,8 +65,9 @@ app.get('/', cacheMiddleWare, asyncMiddleware(async (req, res) => {
           break;
       }
     }
+    console.log(chalk.yellow('Answer: ' + response));
   }
-
+  
   res.send(response);
 }));
 
